@@ -1,0 +1,11 @@
+<% flash.each do |type, msg| %>
+  <div class="<%=type%>" id="msg">
+    <%= msg %>
+  </div>  
+  <script>
+    setTimeout(()=>{
+        var element = document.getElementById("msg");
+        element.style.display = "none";
+    }, 5000)
+  </script>
+<% end %>

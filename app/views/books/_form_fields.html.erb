@@ -1,0 +1,13 @@
+<%= label_tag(:title, 'Title') %>
+<%= text_field(:book, :title) %>
+<%= label_tag(:genre, 'Genre') %>
+<%= select(:book, :genre, ["Science fiction", "Drama", "Action and Adventure", "Romance", "Mystery", "Horror"]) %>
+<%= label_tag(:description, 'Description') %>
+<%= text_area(:book,:description) %>
+<%= label_tag(:isbn_number, 'ISBN number') %>
+<%= text_field(:book, :isbn_number) %>
+<%= label_tag(:publish_date, 'Publish date') %>
+<%= date_field(:book, :publish_date) %>
+<%= label_tag(:author, 'Author') %>
+<%= text_field(:book, :author, {id:"author"}) %>
+<%= submit_tag("#{@newbook ? 'Add new book' : 'Update Book Info'}") %>

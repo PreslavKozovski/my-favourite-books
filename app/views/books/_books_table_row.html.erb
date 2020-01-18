@@ -1,0 +1,8 @@
+<tr>
+  <td><%= book.title %></td>
+  <td><%= book.genre %></td>
+  <td><%= book.isbn_number %></td>
+  <td><%= book.publish_date.strftime("%B %d, %Y") %></td>
+  <td><%= book.author %></td>
+  <td><a href="<%= book_path(book.id)%>" class="btn btn-primary stretched-link">More about <%= book.title %></a></td>
+</tr>

@@ -1,0 +1,7 @@
+<a class="nav-button" href="<%=books_path()%>"> Back to book's list</a>
+<%= render partial: 'notification'%>
+<h2 class='edit-title'>Edit Book</h2>
+<%= form_tag(book_path(@book), :controller=>"book", :method => :put, :class=>"edit-form") do |f|%>
+  <%= render partial: 'validation'%>
+  <%= render partial: 'form_fields'%>
+<% end %>

@@ -1,0 +1,28 @@
+<%= render partial: 'notification'%>
+<div class='details-wrap'>
+  <h2>Details about <%= @book.title%></h2>
+  <ul id="details">
+    <li>
+      Genre:
+      <%=@book.genre%>
+      </li>
+    <li>
+      ISBN number:
+      <%=@book.isbn_number%>
+      </li>
+      <li>
+      Publish date:
+      <%=@book.publish_date.strftime("%B %d, %Y")%>
+      </li>
+  </ul>
+  <h3> Description:</h3>
+
+  <p id="description"> <%=@book.description%></p>
+
+  <div class="buttons-wrap">
+    <a class="nav-button" href="<%=edit_book_path(@book)%>"> Edit info</a>
+    <%= link_to 'Find Books With Same Author', search_similar_books_url(id: @book.id), :id=>"Find Books With Same Author", :class=>"nav-button"%>
+    <%= link_to 'Delete', book_path(@book), :method => :delete, :class=>"nav-button" %>
+    <a class="nav-button" href="<%=books_path()%>"> Back to book's list</a>
+  </div>
+</div>

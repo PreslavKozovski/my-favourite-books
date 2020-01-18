@@ -1,0 +1,18 @@
+<h1> Similar books to <%=@book.title%></h1>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Book Title</th>
+      <th>Genre</th>
+      <th>ISBN Number</th>
+      <th>Publish Date</th>
+      <th>Author</th>
+      <th>More Info</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+      <%= render partial: 'books_table_row',locals: { book: book } %>
+    <% end %>
+  </tbody>
+</table>

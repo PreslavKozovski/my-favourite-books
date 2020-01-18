@@ -1,0 +1,34 @@
+<%= render partial: 'notification'%>
+<%= form_tag(books_path, :controller=>"book", :method => :get, :class=>"filter-form") do%>
+  <%= hidden_field_tag :title_sort, true if @title_header %>
+  <%= hidden_field_tag :release_date_sort, true if @date_header %>
+  <div class='genre-wrap'>
+    <% @all_genres.each_with_index do |genre, index| %>
+      <label class="genre genre_<%=index%>">
+        <%= genre %>
+        <%= check_box_tag "genres[#{genre}]", 1, @selected_genres.include?(genre), :id => "genres_#{genre}" %>
+      </label>
+      <% end %>
+    <%= submit_tag("Refresh") %>
+  </div>
+<% end%>
+<div class='table-wrap'>
+  <table border="1">
+    <thead>
+      <tr>
+        <th><%=link_to 'Book Title', books_path(:sort => 'title'), :id => 'title_header', :class => @title_header%></th>
+        <th>Genre</th>
+        <th>ISBN Number</th>
+        <th><%= link_to 'Publish Date', books_path(:sort => 'publish_date'), :id => 'publish_date_header', :class => @date_header%></th>
+        <th>Author</th>
+        <th>More Info</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @books.each do |book| %>
+        <%= render partial: 'books_table_row',locals: { book: book } %>
+      <% end %>
+    </tbody>
+  </table>
+</dvi>
+<a href="<%=new_book_path%>" class="btn btn-primary">Add new book</a>

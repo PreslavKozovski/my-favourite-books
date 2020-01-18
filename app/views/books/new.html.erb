@@ -1,0 +1,6 @@
+<a class="nav-button" href="<%=books_path()%>"> Back to book's list</a>
+<h2 class='create-title'>Create New Book</h2>
+<%= form_tag(books_path, :controller=>"book", :method => :post, :class=>"create-form") do%>
+  <%= render partial: 'validation'%>
+  <%= render partial: 'form_fields'%>
+<% end %>
